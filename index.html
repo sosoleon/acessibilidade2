@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AM Sorveteria Gourmet | Sorvetes Artesanais</title>
+    <style>
+        :root {
+            --cor-primaria: #f8bbd0; /* Rosa claro */
+            --cor-secundaria: #d1c4e9; /* Lilás claro */
+            --cor-fundo: #ffffff; /* Branco */
+            --cor-texto: #333333;
+            --tamanho-fonte: 16px;
+            --escala-imagem: 1;
+        }
+
+        /* Modo Alto Contraste */
+        .alto-contraste {
+            --cor-primaria: #000000;
+            --cor-secundaria: #000000;
+            --cor-fundo: #ffffff;
+            --cor-texto: #000000;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-size: var(--tamanho-fonte);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background-color: var(--cor-primaria);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            color: #d81b60;
+            font-size: calc(var(--tamanho-fonte) * 2);
+        }
+
+        .acessibilidade {
+            background-color: var(--cor-secundaria);
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-acessibilidade {
+            background-color: var(--cor-primaria);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-acessibilidade:hover {
+            background-color: #f48fb1;
+        }
+
+        nav {
+            background-color: var(--cor-secundaria);
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: bold;
+            font-size: calc(var(--tamanho-fonte) * 1.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--cor-primaria);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .destaque {
+            background-color: var(--cor-primaria);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sabores {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .sabor {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .sabor:hover {
+            transform: translateY(-5px);
+        }
+
+        .sabor img {
+            width: calc(100% * var(--escala-imagem));
+            height: calc(200px * var(--escala-imagem));
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .sabor-info {
+            padding: 15px;
+        }
+
+        .sabor h3 {
+            margin-top: 0;
+            color: #d81b60;
+            font-size: calc(var(--tamanho-fonte) * 1.2);
+        }
+
+        footer {
+            background-color: var(--cor-primaria);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+        }
+
+        /* Classes para tamanho de fonte */
+        .fonte-pequena {
+            --tamanho-fonte: 14px;
+        }
+
+        .fonte-media {
+            --tamanho-fonte: 16px;
+        }
+
+        .fonte-grande {
+            --tamanho-fonte: 18px;
+        }
+
+        .fonte-muito-grande {
+            --tamanho-fonte: 20px;
+        }
+
+        /* Classes para escala de imagens */
+        .imagens-pequenas {
+            --escala-imagem: 0.8;
+        }
+
+        .imagens-normais {
+            --escala-imagem: 1;
+        }
+
+        .imagens-grandes {
+            --escala-imagem: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AM SORVETERIA GOURMET</h1>
+        <p>Os melhores sorvetes artesanais da região!</p>
+    </header>
+
+    <div class="acessibilidade">
+        <button class="btn-acessibilidade" onclick="alterarFonte('pequena')">A-</button>
+        <button class="btn-acessibilidade" onclick="alterarFonte('media')">A</button>
+        <button class="btn-acessibilidade" onclick="alterarFonte('grande')">A+</button>
+        <button class="btn-acessibilidade" onclick="alterarFonte('muito-grande')">A++</button>
+        
+        <button class="btn-acessibilidade" onclick="alterarImagens('pequenas')">Imagens Pequenas</button>
+        <button class="btn-acessibilidade" onclick="alterarImagens('normais')">Imagens Normais</button>
+        <button class="btn-acessibilidade" onclick="alterarImagens('grandes')">Imagens Grandes</button>
+        
+        <button class="btn-acessibilidade" id="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sabores">Sabores</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="destaque">
+            <h2>Bem-vindo à AM Sorveteria Gourmet</h2>
+            <p>Experimente nossos deliciosos sorvetes artesanais feitos com ingredientes 100% naturais e selecionados.</p>
+            <p>Trabalhamos com frutas da estação e produtos de alta qualidade para oferecer a melhor experiência em sorvetes gourmet.</p>
+        </section>
+
+        <section id="sabores">
+            <h2>Nossos Sabores</h2>
+            <div class="sabores">
+                <div class="sabor">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sorvete de Morango">
+                    <div class="sabor-info">
+                        <h3>Morango Gourmet</h3>
+                        <p>Feito com morangos frescos e leite orgânico. Um clássico reinventado.</p>
+                    </div>
+                </div>
+                
+                <div class="sabor">
+                    <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sorvete de Chocolate Belga">
+                    <div class="sabor-info">
+                        <h3>Chocolate Belga</h3>
+                        <p>Chocolate 70% cacau com um toque de baunilha. Indulgência pura.</p>
+                    </div>
+                </div>
+                
+                <div class="sabor">
+                    <img src="https://images.unsplash.com/photo-1517846561341-93c6ddae9d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sorvete de Baunilha Bourbon">
+                    <div class="sabor-info">
+                        <h3>Baunilha Bourbon</h3>
+                        <p>Baunilha de Madagascar com notas caramelizadas. Sofisticação em cada colher.</p>
+                    </div>
+                </div>
+                
+                <div class="sabor">
+                    <img src="https://images.unsplash.com/photo-1536599424071-0b215a388ba7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sorvete de Limão Siciliano">
+                    <div class="sabor-info">
+                        <h3>Limão Siciliano</h3>
+                        <p>Fresco e cítrico, perfeito para os dias quentes. Feito com limões importados.</p>
+                    </div>
+                </div>
+                
+                <div class="sabor">
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sorvete de Coco Cremoso">
+                    <div class="sabor-info">
+                        <h3>Coco Cremoso</h3>
+                        <p>Feito com coco fresco e leite de coco. Vegano e delicioso.</p>
+                    </div>
+                </div>
+                
+                <div class="sabor">
+                    <img src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sorvete de Maracujá Azedinho">
+                    <div class="sabor-info">
+                        <h3>Maracujá Azedinho</h3>
+                        <p>O equilíbrio perfeito entre doce e azedo. Feito com polpa de maracujá orgânico.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="destaque">
+            <h2>Sobre Nós</h2>
+            <p>A AM Sorveteria Gourmet nasceu do amor por sorvetes e da vontade de oferecer produtos diferenciados no mercado.</p>
+            <p>Nossos sorvetes são produzidos artesanalmente, sem conservantes ou corantes artificiais, priorizando sempre ingredientes frescos e de qualidade.</p>
+            <p>Visite nossa loja e experimente essa experiência única!</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Endereço: Rua dos Sabores, 123 - Centro</p>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>Horário de Funcionamento: Terça a Domingo, das 13h às 21h</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 AM Sorveteria Gourmet. Todos os direitos reservados.</p>
+        <p>Desenvolvido com ❤️ para todos os públicos</p>
+    </footer>
+
+    <script>
+        // Funções para acessibilidade
+        function alterarFonte(tamanho) {
+            document.body.classList.remove('fonte-pequena', 'fonte-media', 'fonte-grande', 'fonte-muito-grande');
+            
+            switch(tamanho) {
+                case 'pequena':
+                    document.body.classList.add('fonte-pequena');
+                    break;
+                case 'media':
+                    document.body.classList.add('fonte-media');
+                    break;
+                case 'grande':
+                    document.body.classList.add('fonte-grande');
+                    break;
+                case 'muito-grande':
+                    document.body.classList.add('fonte-muito-grande');
+                    break;
+            }
+        }
+
+        function alterarImagens(tamanho) {
+            document.body.classList.remove('imagens-pequenas', 'imagens-normais', 'imagens-grandes');
+            
+            switch(tamanho) {
+                case 'pequenas':
+                    document.body.classList.add('imagens-pequenas');
+                    break;
+                case 'normais':
+                    document.body.classList.add('imagens-normais');
+                    break;
+                case 'grandes':
+                    document.body.classList.add('imagens-grandes');
+                    break;
+            }
+        }
+
+        function alternarContraste() {
+            document.body.classList.toggle('alto-contraste');
+            const btn = document.getElementById('btn-contraste');
+            
+            if (document.body.classList.contains('alto-contraste')) {
+                btn.textContent = 'Cores Originais';
+            } else {
+                btn.textContent = 'Alto Contraste';
+            }
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            alterarFonte('media');
+            alterarImagens('normais');
+        });
+    </script>
+</body>
+</html>
